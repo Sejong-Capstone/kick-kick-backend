@@ -21,7 +21,8 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 // model 정의
-db.user = require('./user')(sequelize, Sequelize); // system_wallet
+db.user = require('./user')(sequelize, Sequelize); // user
+db.camera = require('./camera')(sequelize, Sequelize); // camera
 
 sequelize.sync()
 .then(() => {

@@ -1,9 +1,10 @@
 name: Deploy to EC2 Server
 
 on:
+  push:
+    branches: [master]
   pull_request:
-    branches:
-      - master
+    branches: [master]
 
 jobs:
   deploy:
