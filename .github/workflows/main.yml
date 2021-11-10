@@ -1,0 +1,51 @@
+name: Deploy to EC2 Server
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: executing remote ssh commands using ssh key
+        uses: appleboy/ssh-action@master
+        env: 
+          GITHUB_ACCESS_TOKEN: ${{ secrets.GGULBAE_TOKEN}}
+        with:
+          host: ${{ secrets.AWS_HOST }}
+          username: ${{ secrets.AWS_USER }}
+          key: ${{ secrets.AWS_KEY }}
+          # script_stop: true
+          envs: GITHUB_ACCESS_TOKEN
+          script: |
+            echo "who am i?"
+            whoami
+
+            echo "Set nvm env paths"
+
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+            echo "Set dir"
+            cd kick-kick-main-server
+
+            echo "pm2 stop and delete process kick-kick-main-server"
+            pm2 stop kick-kick-main-server
+            pm2 delete kick-kick-main-server
+            
+            echo "Pull latest source code"
+            git fetch --all
+            git reset --hard origin/master
+            git pull "https://Sejong-Capstone:$GITHUB_ACCESS_TOKEN@github.com/Sejong-Capstone/kick-kick-main-server.git" main
+
+            echo "Install dependencies"
+
+            npm install
+            
+            echo "Start deploy"
+
+            npm run deploy

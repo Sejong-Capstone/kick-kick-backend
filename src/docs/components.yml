@@ -1,0 +1,7 @@
+components:
+  schemas:
+    serverStatus:
+      properties:
+        status:
+          type: string
+          description: Server status

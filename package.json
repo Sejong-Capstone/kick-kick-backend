@@ -1,0 +1,37 @@
+{
+  "name": "kick-kick-main-server",
+  "version": "2.0.0",
+  "description": "kick-kick-main-server",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "node ./bin/www",
+    "dev": "nodemon --watch ./src/ ./bin/www.js",
+    "deploy": "export NODE_ENV=production && pm2 start ./bin/www.js --name kick-kick-mainserver"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Sejong-Capstone/kick-kick-main-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sejong-Capstone/kick-kick-main-server/issues"
+  },
+  "homepage": "https://github.com/Sejong-Capstone/kick-kick-main-server#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "morgan-body": "^2.6.5",
+    "mysql2": "^2.2.5",
+    "node-cron": "^3.0.0",
+    "sequelize": "^6.9.0"
+  },
+  "devDependencies": {
+    "mocha": "^9.1.3",
+    "swagger-jsdoc": "^6.1.0",
+    "swagger-ui-express": "^4.1.6"
+  }
+}
