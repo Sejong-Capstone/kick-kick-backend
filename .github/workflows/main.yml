@@ -32,16 +32,16 @@ jobs:
             [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
             echo "Set dir"
-            cd kick-kick-main-server
+            cd kick-kick-backend
 
-            echo "pm2 stop and delete process kick-kick-main-server"
-            pm2 stop kick-kick-main-server
-            pm2 delete kick-kick-main-server
+            echo "pm2 stop and delete process kick-kick-backend"
+            pm2 stop kick-kick-backend
+            pm2 delete kick-kick-backend
             
             echo "Pull latest source code"
             git fetch --all
             git reset --hard origin/master
-            git pull "https://Sejong-Capstone:$GITHUB_ACCESS_TOKEN@github.com/Sejong-Capstone/kick-kick-main-server.git" main
+            git pull "https://Sejong-Capstone:$GITHUB_ACCESS_TOKEN@github.com/Sejong-Capstone/kick-kick-backend.git" main
 
             echo "Install dependencies"
 
