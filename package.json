@@ -6,6 +6,7 @@
   "scripts": {
     "test": "mocha",
     "start": "node ./bin/www",
+    "install": "npm install -g nodemon",
     "dev": "nodemon --watch ./src/ ./bin/www.js",
     "deploy": "export NODE_ENV=production && pm2 start ./bin/www.js --name kick-kick-mainserver"
   },
