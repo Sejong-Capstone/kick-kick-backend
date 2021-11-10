@@ -19,6 +19,10 @@ You can deploy automatically via push or pull request to Master Branch.
 |index|content|data|
 |:---:|:-----:|:--:|
 
+## POSTMAN
+
+[link_to_Postman][link_to_Postman]
+
 ## API 목록 (Deprecated)
 
 |index|content|url|
@@ -39,3 +43,4 @@ You can deploy automatically via push or pull request to Master Branch.
 
 [link_to_Ryunos96]: https://github.com/Ryunos96
 [link_to_GGULBAE]: https://github.com/GGULBAE
+[link_to_Postman]: https://app.getpostman.com/join-team?invite_code=9ac83a20de3c278a6ea437db2661aec9&ws=4cb79c36-f55f-49fe-96cf-1c28246aa4e8
