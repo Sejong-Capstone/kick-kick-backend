@@ -18,8 +18,6 @@ You can deploy automatically via push or pull request to Master Branch.
 
 |index|content|data|
 |:---:|:-----:|:--:|
-|1|IAM KEY SECRET|IQYP/2eDFrOLSenZ0bTb+mrYs6GitYmXiLuQ4Y3S|
-|2|IAM KEY ID|AKIAZYWTQ7KZUHPRJNRH|
 
 ## API 목록 (Deprecated)
 
