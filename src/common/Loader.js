@@ -2,6 +2,7 @@
 /*
   Loader to run express app.
 */
+const express = require('express')
 
 class Loader {
   static setParser(app, pName) {
@@ -33,15 +34,21 @@ class Loader {
     app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
   }
 
+  static setStaticFile(app, handleDir) {
+    app.use(express.static(handleDir));
+  }
+
   static load(app) {
     
     Loader.setParser(app, 'body-parser');
     Loader.setLogger(app, 'morgan-body');
     Loader.setRouter(app, '../routers');
     
+    Loader.setStaticFile(app, 'public');
     Loader.setSwagger(app, '../docs/swagger.js');
 
     Loader.setErrorHandler(app, '../common/CustomErrorHandler');
+    
   }
 }
 
