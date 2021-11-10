@@ -41,7 +41,7 @@ jobs:
             echo "Pull latest source code"
             git fetch --all
             git reset --hard origin/master
-            git pull "https://Sejong-Capstone:$GITHUB_ACCESS_TOKEN@github.com/Sejong-Capstone/kick-kick-backend.git" main
+            git pull "https://Sejong-Capstone:$GITHUB_ACCESS_TOKEN@github.com/Sejong-Capstone/kick-kick-backend.git" master
 
             echo "Install dependencies"
 
