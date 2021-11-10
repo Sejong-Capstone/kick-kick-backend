@@ -1,7 +1,7 @@
-// const pool = require('./pool.js');
+const user = require('./user.js');
 
 const services = {
-  // pool
+  user
 }
 
 module.exports = services;

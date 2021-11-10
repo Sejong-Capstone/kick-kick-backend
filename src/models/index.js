@@ -21,13 +21,14 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 // model 정의
+db.user = require('./user')(sequelize, Sequelize); // system_wallet
 
-// sequelize.sync()
-// .then(() => {
-//   PrettyConsole.print('Sequelize Sync', '-Sync Finished-');
-// })
-// .catch((error) => {
-//   PrettyConsole.print('Sequelize Sync', `Sync Failed: ${error}`);
-// });
+sequelize.sync()
+.then(() => {
+  PrettyConsole.print('Sequelize Sync', '-Sync Finished-');
+})
+.catch((error) => {
+  PrettyConsole.print('Sequelize Sync', `Sync Failed: ${error}`);
+});
 
 module.exports = db;

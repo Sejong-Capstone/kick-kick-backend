@@ -5,3 +5,21 @@ components:
         status:
           type: string
           description: Server status
+    signup:
+      properties:
+        userId:
+          type: string
+          description: user id
+          required: true
+        name:
+          type: string
+          description: user name
+          required: true
+        email:
+          type: string
+          description: user email
+          required: true
+        password:
+          type: string
+          description: user password
+          required: true

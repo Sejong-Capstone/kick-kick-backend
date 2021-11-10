@@ -1,9 +1,9 @@
 {
   "development": {
     "username": "admin",
-    "password": "quusforever",
-    "database": "kick-kick",
-    "host": "asdf",
+    "password": "Rnfqo123~",
+    "database": "Kick_Kick",
+    "host": "coin-crawler-rds.cbmfom21zyz7.ap-northeast-2.rds.amazonaws.com",
     "dialect": "mysql",
     "port": 3306,
     "pool": {
@@ -14,9 +14,9 @@
   },
   "production": {
     "username": "admin",
-    "password": "quusforever",
-    "database": "kick-kick",
-    "host": "asdf",
+    "password": "Rnfqo123~",
+    "database": "Kick_Kick",
+    "host": "coin-crawler-rds.cbmfom21zyz7.ap-northeast-2.rds.amazonaws.com",
     "dialect": "mysql",
     "port": 3306,
     "pool": {
