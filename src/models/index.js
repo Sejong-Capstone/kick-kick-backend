@@ -23,6 +23,7 @@ db.Sequelize = Sequelize;
 // model 정의
 db.user = require('./user')(sequelize, Sequelize); // user
 db.camera = require('./camera')(sequelize, Sequelize); // camera
+db.detected_image = require('./detected_image')(sequelize, Sequelize); //detected_image
 
 sequelize.sync()
 .then(() => {

@@ -1,7 +1,8 @@
 const user = require('./user.js');
+const camera = require('./camera.js');
 
 const services = {
-  user
+  user, camera
 }
 
 module.exports = services;
