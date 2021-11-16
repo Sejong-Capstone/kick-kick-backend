@@ -1,25 +1,24 @@
 
 const { CustomErrors } = require('../../../common');
 const model = require('../../../models');
-const { camera } = model;
+const { detected_image } = model;
 
-const camera_services = {
+const detect_services = {
   attributes: {
     include: [
-      'fk_user_id',
-      'cameraName',
-      'isConnected',
-      'location'
+      'isDetected',
+      'image'
     ],
     exclude: [
-      'fk_user_id'
+      'fk_user_id',
+      'fk_camera_id'
     ]
   },
   findAll: async (where={}) => {
     try {
-      const rows = await camera.findAll({
+      const rows = await detected_image.findAll({
         where,
-        attributes: camera_services.attributes,
+        attributes: detect_services.attributes,
       });
       
       return rows;
@@ -29,8 +28,8 @@ const camera_services = {
   },
   find: async () => {
     try {
-      const rows = await camera.findOne({ 
-        attributes: camera_services.attributes,
+      const rows = await detected_image.findOne({ 
+        attributes: detect_services.attributes,
       });
 
       return rows;
@@ -38,10 +37,10 @@ const camera_services = {
       throw new CustomErrors.ConflictError(err);
     }
   },
-  create: async ({ cameraName, location, fk_user_id, isConnected=false }) => {
+  create: async ({ fk_user_id, fk_camera_id, isDetected, image }) => {
     try {
-      const rows = await camera.create({ 
-        cameraName, location, fk_user_id, isConnected
+      const rows = await detected_image.create({ 
+        fk_user_id, fk_camera_id, isDetected, image
       });
 
       return rows;
@@ -49,13 +48,13 @@ const camera_services = {
       throw new CustomErrors.ConflictError(err);
     }
   },
-  update: async ({ cameraId, cameraName, location, fk_user_id, isConnected=false }) => {
+  update: async ({ detected_image_id, fk_user_id, isDetected, image }) => {
     try {
-      await camera.update({ 
-        cameraName, location, isConnected
+      await detected_image.update({ 
+        isDetected, image
       }, {
         where: {
-          id: cameraId,
+          id: detected_image_id,
           fk_user_id: fk_user_id
         }
       });
@@ -65,11 +64,11 @@ const camera_services = {
       throw new CustomErrors.ConflictError(err);
     }
   },
-  delete: async ({ id, fk_user_id }) => {
+  delete: async ({ detected_image_id, fk_user_id }) => {
     try {
-      await camera.destroy({
+      await detected_image.destroy({
         where: {
-          id,
+          id: detected_image_id,
           fk_user_id
         }
       });
@@ -79,17 +78,19 @@ const camera_services = {
       throw new CustomErrors.ConflictError(err);
     }
   },
-  filterByUserId: async ({ fk_user_id }) => {
+  detectAndCreate: async ({ fk_user_id, fk_camera_id, image }) => {
     try {
-      const rows = await camera_services.findAll({
-        fk_user_id
+      // Detect Login Will be Added
+
+      await detected_image.create({
+        fk_user_id, fk_camera_id, image, isDetected: true
       });
 
-      return rows;
+      return true;
     } catch (err) {
       throw new CustomErrors.ConflictError(err);
     }
   }
 }
 
-module.exports = camera_services;
+module.exports = detect_services;

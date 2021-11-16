@@ -19,8 +19,12 @@ module.exports = (sequelize, Sequelize) => {
     },
     isDetected: {
       type: Sequelize.DataTypes.BOOLEAN,
-      allowNull: true,
-    }
+      allowNull: false,
+    },
+    image: {
+      type: Sequelize.DataTypes.BLOB('long'),
+      allowNull: false,
+    },
   }, {
     timestamps: true,
     paranoid: true,
