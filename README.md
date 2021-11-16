@@ -34,7 +34,6 @@ You can deploy automatically via push or pull request to Master Branch.
 |5|로그인|/user/signin|
 |6|계정탈퇴|/user/signout or /user/withdrawl|
 |7|검출 내역 확인|/detected/system|
-|8|유저가 검출 하기|/detected/user|
 
 ## Contributors
 
