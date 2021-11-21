@@ -10,26 +10,19 @@ Kick Kick Main Server
   npm run dev # Run in dev mode (Using nodemon)
 ```
 
-## How to Run(#2 - Flask Server)
-
-### First Activate python venv
+## How to Run - Flask Server
 
 ```shell
-  ./venv/Scripts/activate.bat # Windows cmd
-  ./venv/Scripts/activate.ps1 # Windows Power shell
-  source ./venv/bin/activate # Linux
-```
+  python -m venv .venv
 
-### Module Install
+  .\.venv\Scripts\activate.bat # windows cmd
 
-```shell
-  pip install -r /path/to/requirements.txt
-```
+  or 
 
-### Run app.py
+  .\.venv\Scripts\activate.ps1 # windows power shell
 
-```shell
-  python app.py
+  pip install -r .\requirements.txt
+  python .\app.py
 ```
 
 ## How to Deploy
